@@ -1,3 +1,4 @@
+import "dotenv/config";
 import express from "express";
 import helmet from "helmet";
 import { dirname, join } from "path";
@@ -11,7 +12,7 @@ const __dirname = dirname(__filename);
 const app = express();
 
 // Needed for security headers! Do not delete!
-if (proccess.env.NODE_ENV === "production") {
+if (process.env.NODE_ENV === "production") {
   app.use(helmet());
 } else {
   console.log("Not in production mode, skipping helmet middleware");
